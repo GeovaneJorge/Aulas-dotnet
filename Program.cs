@@ -39,7 +39,7 @@ class Program
                     //TODO Listar alunos
                     foreach(var a in alunos)
                     {
-                        if(!a.Nome.Equals(""))
+                        if(!string .IsNullOrEmpty(a.Nome))
                         {
                         Console.WriteLine($"ALUNO: {a.Nome} - NOTA: {a.Nota}");
                         }
@@ -49,13 +49,27 @@ class Program
 
                 case "3":
                     //TODO Calcular media Geral 
+                    decimal notaTotal =0;
+                    var nrAlunos=0;
+
+                    for (int i=0; i < alunos.Length; i++)
+                    {
+                        if(!string.IsNullOrEmpty(alunos[i].Nome))
+                        {
+                            notaTotal=notaTotal + alunos[i].Nota;
+                            nrAlunos++;
+                        }
+
+                    }
+                    var mediaGeral=notaTotal / nrAlunos;
+                    Console.WriteLine($"Média Geral: {mediaGeral}");
                     break;
 
                 default:
                     throw new ArgumentOutOfRangeException();
 
             }
-            opcaoUsuario = Console.ReadLine();
+            opcaoUsuario = ObterOpcaoUsuario();
         }
     }
 
@@ -65,7 +79,7 @@ class Program
         Console.WriteLine(" Informe a opção desejada:");
         Console.WriteLine("1- Inserir novo aluno");
         Console.WriteLine("2- Listar alunos");
-        Console.WriteLine("3- Listar alunos");
+        Console.WriteLine("3- Calcular média geral");
         Console.WriteLine("X -Sair");
         Console.WriteLine();
 

@@ -41,7 +41,7 @@ class Program
                     {
                         if(!string .IsNullOrEmpty(a.Nome))
                         {
-                        Console.WriteLine($"ALUNO: {a.Nome} - NOTA: {a.Nota}");
+                             Console.WriteLine($"ALUNO: {a.Nome} - NOTA: {a.Nota}");
                         }
                     }
 
@@ -49,12 +49,12 @@ class Program
 
                 case "3":
                     //TODO Calcular media Geral 
-                    decimal notaTotal =0;
-                    var nrAlunos=0;
+                    decimal notaTotal = 0;
+                    var nrAlunos = 0;
 
                     for (int i=0; i < alunos.Length; i++)
                     {
-                        if(!string.IsNullOrEmpty(alunos[i].Nome))
+                        if (!string.IsNullOrEmpty(alunos[i].Nome))
                         {
                             notaTotal=notaTotal + alunos[i].Nota;
                             nrAlunos++;

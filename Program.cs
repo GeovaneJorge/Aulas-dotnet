@@ -62,7 +62,29 @@ class Program
 
                     }
                     var mediaGeral=notaTotal / nrAlunos;
-                    Console.WriteLine($"Média Geral: {mediaGeral}");
+                    Conceito conceitoGeral;
+
+                    if(mediaGeral < 2)
+                    {   
+                        conceitoGeral=Conceito.E;
+                    }
+                    else if(mediaGeral < 4)
+                    {
+                        conceitoGeral=Conceito.D;
+                    }
+                    else if(mediaGeral < 6)
+                    {
+                        conceitoGeral=Conceito.C;
+                    }
+                    else if(mediaGeral < 8)
+                    {
+                        conceitoGeral=Conceito.B;
+                    }
+                    else
+                    {
+                        conceitoGeral=Conceito.A;
+                    }
+                    Console.WriteLine($"Média Geral: {mediaGeral} - CONCEITO: {conceitoGeral}");
                     break;
 
                 default:
@@ -73,33 +95,20 @@ class Program
         }
     }
 
-    private static string ObterOpcaoUsuario()
-    {   
-        Console.WriteLine();
-        Console.WriteLine(" Informe a opção desejada:");
-        Console.WriteLine("1- Inserir novo aluno");
-        Console.WriteLine("2- Listar alunos");
-        Console.WriteLine("3- Calcular média geral");
-        Console.WriteLine("X -Sair");
-        Console.WriteLine();
+            private static string ObterOpcaoUsuario()
+            {   
+                Console.WriteLine();
+                Console.WriteLine(" Informe a opção desejada:");
+                Console.WriteLine("1- Inserir novo aluno");
+                Console.WriteLine("2- Listar alunos");
+                Console.WriteLine("3- Calcular média geral");
+                Console.WriteLine("X -Sair");
+                Console.WriteLine();
 
-        string opcaoUsuario = Console.ReadLine();
-        return opcaoUsuario;
-    }
-
-        public override bool Equals(object? obj)
-        {
-            return base.Equals(obj);
-        }
-
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
-
-        public override string? ToString()
-        {
-            return base.ToString();
-        }
+                string opcaoUsuario = Console.ReadLine();
+                return opcaoUsuario;
+            
+            }        
+    
     }
 }
